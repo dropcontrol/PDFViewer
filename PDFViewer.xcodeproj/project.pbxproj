@@ -13,6 +13,8 @@
 		0513A9B0255163A800248435 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0513A9AF255163A800248435 /* Preview Assets.xcassets */; };
 		0513A9BB255163A800248435 /* PDFViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0513A9BA255163A800248435 /* PDFViewerTests.swift */; };
 		0513A9C6255163A800248435 /* PDFViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0513A9C5255163A800248435 /* PDFViewerUITests.swift */; };
+		05F830BF25561E2F001EC7B5 /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F830BE25561E2F001EC7B5 /* PDFKit.framework */; };
+		05F830C125561EB5001EC7B5 /* Oz was Wizard - Original Soundtrack.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05F830C025561EB5001EC7B5 /* Oz was Wizard - Original Soundtrack.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		0513A9C1255163A800248435 /* PDFViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PDFViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0513A9C5255163A800248435 /* PDFViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerUITests.swift; sourceTree = "<group>"; };
 		0513A9C7255163A800248435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05F830BE25561E2F001EC7B5 /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
+		05F830C025561EB5001EC7B5 /* Oz was Wizard - Original Soundtrack.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Oz was Wizard - Original Soundtrack.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F830BF25561E2F001EC7B5 /* PDFKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,10 +80,12 @@
 		0513A99C255163A700248435 = {
 			isa = PBXGroup;
 			children = (
+				05F830C025561EB5001EC7B5 /* Oz was Wizard - Original Soundtrack.pdf */,
 				0513A9A7255163A700248435 /* PDFViewer */,
 				0513A9B9255163A800248435 /* PDFViewerTests */,
 				0513A9C4255163A800248435 /* PDFViewerUITests */,
 				0513A9A6255163A700248435 /* Products */,
+				05F830BD25561E2F001EC7B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +135,14 @@
 				0513A9C7255163A800248435 /* Info.plist */,
 			);
 			path = PDFViewerUITests;
+			sourceTree = "<group>";
+		};
+		05F830BD25561E2F001EC7B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05F830BE25561E2F001EC7B5 /* PDFKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F830C125561EB5001EC7B5 /* Oz was Wizard - Original Soundtrack.pdf in Resources */,
 				0513A9B0255163A800248435 /* Preview Assets.xcassets in Resources */,
 				0513A9AD255163A800248435 /* Assets.xcassets in Resources */,
 			);
