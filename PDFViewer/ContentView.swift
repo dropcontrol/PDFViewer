@@ -11,6 +11,7 @@ import PDFKit
 class PDFInfo: ObservableObject {
     @Published var pageNo: Int = 1
     @Published var pdfView: PDFView = PDFView()
+    @Published var stateTopButton: Bool = false
     
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.pageChanged(_:)), name: Notification.Name.PDFViewPageChanged, object: nil)
@@ -18,6 +19,7 @@ class PDFInfo: ObservableObject {
     
     @objc func pageChanged(_ notification: Notification) {
         self.pageNo = self.pdfView.currentPage!.pageRef!.pageNumber
+        self.stateTopButton = self.pdfView.canGoToFirstPage
         print(self.pageNo)
         print("page is changed")
     }
@@ -48,9 +50,35 @@ struct ShowPDFView: View {
 
 struct pdfInfoView: View {
     @ObservedObject var pdfInfo: PDFInfo
+    @State var enableTopButton: Bool = true
     
     var body: some View {
-        Text(String(pdfInfo.pageNo))
+        HStack{
+            Text(String(pdfInfo.pageNo))
+            // Group / HStack / VStack / ZStack　でwrapされているとそこで条件式が使える
+            if (!pdfInfo.pdfView.canGoToFirstPage) {
+//                Button(action: {
+//                    pdfInfo.pdfView.goToFirstPage(self)
+//                }, label: {
+//                    Text("TOP")
+//                })
+//                .hidden()
+            } else {
+                Button(action: {
+                    pdfInfo.pdfView.goToFirstPage(self)
+                }, label: {
+                    Text("TOP")
+                })
+            }
+            
+            // ボタンの状態を変えてクリック無効にする場合はこちら
+//            Button(action: {
+//                pdfInfo.pdfView.goToFirstPage(self)
+//            }, label: {
+//                Text("TOP")
+//            })
+//            .disabled(!pdfInfo.stateTopButton)
+        }
     }
 }
 
