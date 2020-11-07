@@ -18,8 +18,8 @@ class PDFInfo: ObservableObject {
     }
     
     @objc func pageChanged(_ notification: Notification) {
-        pageNo = self.pdfView.currentPage!.pageRef!.pageNumber
-        stateTopButton = self.pdfView.canGoToFirstPage
+        pageNo = pdfView.currentPage!.pageRef!.pageNumber
+        stateTopButton = pdfView.canGoToFirstPage
         print(self.pageNo)
         print("page is changed")
     }
@@ -31,7 +31,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ShowPDFView(pdfInfo: pdfInfo)
-            pdfInfoView(pdfInfo: pdfInfo)
+            PdfInfoView(pdfInfo: pdfInfo)
             .padding()
         }.onAppear(){
             pdfInfo.addObserver()
@@ -48,7 +48,7 @@ struct ShowPDFView: View {
     }
 }
 
-struct pdfInfoView: View {
+struct PdfInfoView: View {
     @ObservedObject var pdfInfo: PDFInfo
     @State var enableTopButton: Bool = true
     
@@ -94,8 +94,6 @@ struct PDFViewer: UIViewRepresentable {
     let url: URL = Bundle.main.url(forResource: "Oz was Wizard - Original Soundtrack", withExtension: "pdf")!
     
     func makeUIView(context: UIViewRepresentableContext<PDFViewer>) -> PDFViewer.UIViewType {
-//        pdfView = PDFView()
-        pdfInfo.pdfView.document = PDFDocument(url: url)
         // 画面サイズに合わす
         pdfInfo.pdfView.autoScales = true
         // 単一ページのみ表示（これを入れるとページめくりができない）
@@ -109,6 +107,8 @@ struct PDFViewer: UIViewRepresentable {
         //余白を入れる
 //        pdfInfo.pdfView.displaysPageBreaks = true
         
+        pdfInfo.pdfView.document = PDFDocument(url: url)
+
         return pdfInfo.pdfView
     }
     
